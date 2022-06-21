@@ -1,0 +1,30 @@
+import React from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+const Header = () => {
+    const language= useSelector((state)=>state.language.lang)
+    return (
+        <div>
+            <Navbar bg="light" expand="lg">
+                <Container>
+                    <Navbar.Brand href="#home">fashonista store</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <Link to="/" >Home</Link>
+                            <Link to="/about" className="mx-3">About us</Link>
+                            <Link to="/contact">Contact us</Link>
+                            <Link to="/product" className="mx-3">Products</Link>
+                            <h3>{language}</h3>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </div>
+    );
+};
+
+export default Header;
